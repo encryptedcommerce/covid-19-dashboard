@@ -5,7 +5,7 @@ import dash_html_components as html
 def create_navbar(current_page: str = 'program-activity'):
     links = {
         '/': 'Summary Dashboard',
-        '/confirmed':  'Prevalence',
+        '/confirmed':  'Confirmed',
         '/deaths': 'Deaths',
     }
     nav_items = []

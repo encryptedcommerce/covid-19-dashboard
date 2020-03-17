@@ -137,7 +137,7 @@ def get_chart_figure(selected_countries=None, scale: str = None, dummy_url: str 
     figure = {
         'data': chart_data,
         'layout': {
-            'title': 'Prevalence',
+            'title': 'Confirmed',
             'hovermode': 'closest',
             'yaxis': {
                 'type': scale,
@@ -172,7 +172,7 @@ def get_country_options(dummy_url: str = None) -> List[Dict[str, str]]:
     ]
 )
 def set_country_value(available_options) -> List[str]:
-    """Set default values for Prevalence countries selector."""
+    """Set default values for Confirmed countries selector."""
     if available_options is None:
         return ['No Data is Available']
     else:

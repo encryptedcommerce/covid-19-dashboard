@@ -29,7 +29,7 @@ def get_table_data(include_coords: bool = False) -> pd.DataFrame:
 
 
 def get_chart_data() -> List[dict]:
-    """Fetches Prevalence data and manipulates it for use in a Graph.
+    """Fetches Confirmed data and manipulates it for use in a Graph.
 
     Arguments:
 
