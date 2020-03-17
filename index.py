@@ -31,6 +31,7 @@ def display_page(pathname):
         '/': views.summary_dashboard.layout,
         '/confirmed': views.confirmed.layout,
         '/deaths': views.deaths.layout,
+        '/recovered': views.recovered.layout,
     }
     if pathname in routes:
         return routes[pathname]

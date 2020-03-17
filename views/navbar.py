@@ -2,11 +2,12 @@ import dash_core_components as dcc
 import dash_html_components as html
 
 
-def create_navbar(current_page: str = 'program-activity'):
+def create_navbar(current_page: str = 'confirmed'):
     links = {
         '/': 'Summary Dashboard',
         '/confirmed':  'Confirmed',
         '/deaths': 'Deaths',
+        '/recovered': 'Recovered',
     }
     nav_items = []
     for link, title in links.items():

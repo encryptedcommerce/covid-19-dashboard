@@ -143,8 +143,7 @@ body div .scale-toggle-options {
 
 #confirmed-country-selector,
 #deaths-country-selector,
-#incidence-country-selector,
-#mortality-country-selector {
+#recovered-country-selector {
   display: inline-block;
   width: 240px;
   z-index: 10;
