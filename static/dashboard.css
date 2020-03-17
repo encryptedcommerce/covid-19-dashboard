@@ -141,7 +141,7 @@ body div .scale-toggle-options {
   display: inline-block;
 }
 
-#prevalence-country-selector,
+#confirmed-country-selector,
 #deaths-country-selector,
 #incidence-country-selector,
 #mortality-country-selector {
