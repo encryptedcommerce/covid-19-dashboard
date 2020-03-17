@@ -29,7 +29,7 @@ def highlight_navbar(pathname):
 def display_page(pathname):
     routes = {
         '/': views.summary_dashboard.layout,
-        '/prevalence': views.prevalence.layout,
+        '/confirmed': views.confirmed.layout,
         '/deaths': views.deaths.layout,
     }
     if pathname in routes:

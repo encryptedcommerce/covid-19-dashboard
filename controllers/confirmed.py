@@ -5,8 +5,8 @@ from dash.exceptions import PreventUpdate
 
 from app import app
 from controllers import common
-from models import prevalence as model
-from views import prevalence as view
+from models import confirmed as model
+from views import confirmed as view
 
 
 # Controller module-level cache from model data
@@ -38,14 +38,14 @@ def get_data(cache_key: str):
     return CACHE[cache_key]
 
 
-@app.callback(Output('tabs-content-prevalence', 'children'),
-              [Input('tabs-prevalence', 'value')])
+@app.callback(Output('tabs-content-confirmed', 'children'),
+              [Input('tabs-confirmed', 'value')])
 def render_tab_content(tab):
     return common.render_tab_content(view, tab)
 
 
 @app.callback(
-    Output('prevalence-table-component', 'columns'),
+    Output('confirmed-table-component', 'columns'),
     [
         Input('url', 'pathname'),
     ]
@@ -67,7 +67,7 @@ def get_table_columns(dummy_url: str = None) -> List[dict]:
 
 
 @app.callback(
-    Output('prevalence-table-component', 'data'),
+    Output('confirmed-table-component', 'data'),
     [
         Input('url', 'pathname'),
     ]
@@ -86,7 +86,7 @@ def get_table_rows(dummy_url: str = None) -> List[dict]:
 
 
 @app.callback(
-    Output('prevalence-download-link', 'href'),
+    Output('confirmed-download-link', 'href'),
     [
         Input('url', 'pathname'),
     ]
@@ -105,9 +105,9 @@ def get_table_csv(dummy_url: str = None):
 
 
 @app.callback(
-    Output('prevalence-chart-component', 'figure'),
+    Output('confirmed-chart-component', 'figure'),
     [
-        Input('prevalence-country-selector-dropdown', 'value'),
+        Input('confirmed-country-selector-dropdown', 'value'),
         Input('scale-toggle-options', 'value'),
         Input('url', 'pathname'),
     ]
@@ -148,7 +148,7 @@ def get_chart_figure(selected_countries=None, scale: str = None, dummy_url: str 
 
 
 @app.callback(
-    Output('prevalence-country-selector-dropdown', 'options'),
+    Output('confirmed-country-selector-dropdown', 'options'),
     [
         Input('url', 'pathname'),
     ]
@@ -166,9 +166,9 @@ def get_country_options(dummy_url: str = None) -> List[Dict[str, str]]:
 
 
 @app.callback(
-    Output('prevalence-country-selector-dropdown', 'value'),
+    Output('confirmed-country-selector-dropdown', 'value'),
     [
-        Input('prevalence-country-selector-dropdown', 'options'),
+        Input('confirmed-country-selector-dropdown', 'options'),
     ]
 )
 def set_country_value(available_options) -> List[str]:

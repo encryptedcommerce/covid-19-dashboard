@@ -53,7 +53,7 @@ def load_data() -> Dict[str, pd.DataFrame]:
                 format_date_column(col) for col in date_cols
             ]
 
-        # Due to changes in reporting methodology in China prior to Feb 12, and low prevalence
+        # Due to changes in reporting methodology in China prior to Feb 12, and low confirmed
         # in most other countries, left-trimming data to start on Feb 12
         # FIXME: DRY
         covid19_confirmed = covid19_confirmed.drop(
