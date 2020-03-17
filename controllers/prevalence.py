@@ -108,19 +108,17 @@ def get_table_csv(dummy_url: str = None):
     Output('prevalence-chart-component', 'figure'),
     [
         Input('prevalence-country-selector-dropdown', 'value'),
-        Input('local', 'modified_timestamp'),
+        Input('scale-toggle-options', 'value'),
         Input('url', 'pathname'),
-    ],
-    [State('local', 'data')]
+    ]
 )
-def get_chart_figure(selected_countries=None, ts=None, dummy_url: str = None, data: dict = None):
+def get_chart_figure(selected_countries=None, scale: str = None, dummy_url: str = None):
     """Gets Scoring Time figure for use by graph object.
 
     Arguments:
         selected_countries: Countries to include in the chart.
-        ts: local store modification timestamp
+        scale: Log or Linear scale for y-axis.
         dummy_url: URL of active pane, used to track changes and re-trigger callback.
-        data: local store
 
     Returns:
         Object with chart data and layout.
@@ -133,10 +131,8 @@ def get_chart_figure(selected_countries=None, ts=None, dummy_url: str = None, da
     else:
         chart_data = [series for series in chart_data if series.get('name') in selected_countries]
 
-    if data is None:
+    if scale is None:
         scale = 'log'
-    else:
-        scale = data.get('scale_value', 'log')
 
     figure = {
         'data': chart_data,
@@ -192,22 +188,3 @@ def set_country_value(available_options) -> List[str]:
         else:
             return values[1:8]
 
-
-@app.callback(
-    Output('local', 'data'),
-    [
-        Input('scale-toggle-options', 'value'),
-    ],
-    [State('local', 'data')]
-)
-def set_scale(scale_value, data):
-    """Set value for y-axis scale."""
-    if data is None:
-        # Prevent the None callbacks for the store component.
-        raise PreventUpdate
-
-    scale_value = scale_value or ''
-    data = data or {'scale_value': scale_value}
-    data['scale_value'] = scale_value
-
-    return data
