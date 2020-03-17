@@ -1,0 +1,12 @@
+name: covid19-dashboard
+channels:
+  - defaults
+dependencies:
+  - python=3.7.6
+  - dash
+  - pandas
+  - babel
+  - gunicorn
+  - pip:
+    - geoip2
+

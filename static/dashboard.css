@@ -1,0 +1,191 @@
+/* This file must be uploaded to the crase-scoring-dashboard/css S3 bucket. */
+
+/* typography */
+html body {
+  font-family: 'Montserrat-Bold', 'Montserrat Bold', 'Montserrat', 'sans-serif'
+}
+
+/* Add a black background color to the top navigation */
+nav {
+  display: inline-block;
+  width: 220px;
+  background-color: #005952;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+nav a {
+  display: block;
+  width: 200px;
+  float: left;
+  clear: both;
+  color: #FFFFFF;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+nav a:hover {
+  background-color: #0077AA;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+nav a.active {
+  background-color: #042E60;
+  color: white;
+}
+
+#header {
+  height: 80px;
+  padding-top: 10px;
+  background-color: #005274;
+  color: #FFFFFF;
+}
+
+body #header .header-section {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+body #header #credit a {
+  color: #ccc;
+}
+
+#crase-logo {
+  display: inline-block;
+  background-color: #ffffff;
+  vertical-align: middle;
+  width: 160px;
+  padding: 0 5px;
+  margin: 10px 20px;
+  text-align: center;
+}
+
+#date-picker-range {
+  display: inline-block;
+  vertical-align: middle;
+  width: 300px;
+  padding: 4px;
+}
+
+#date-picker-range div .DayPicker,
+#date-picker-range div .DayPicker_1 {
+  width: 380px !important;
+}
+
+#date-picker-range div .DayPicker .DayPicker_weekHeaders ul.DayPicker_weekHeader_ul {
+  font-size: 18px;
+  width: 365px;
+}
+#date-picker-range div .DayPicker .DayPicker_weekHeaders li.DayPicker_weekHeader_li {
+    width: 48px !important;
+}
+
+.DayPicker.DayPicker_1.DayPicker__horizontal.DayPicker__horizontal_2.DayPicker__withBorder.DayPicker__withBorder_3 {
+    width: 360px !important;
+}
+
+.DayPicker_transitionContainer.DayPicker_transitionContainer_1.DayPicker_transitionContainer__horizontal.DayPicker_transitionContainer__horizontal_2 {
+    width: 365px !important;
+    height: 325px !important;
+}
+
+#date-picker-range table td.CalendarDay:first-child {
+  padding-left: 15px;
+}
+
+#aggregation {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+#left-nav {
+  display: inline-block;
+}
+
+#nav-bar {
+  display: inline-block;
+  height: calc(100vh - 220px);
+}
+
+div#pane-content {
+  display: inline-block;
+  vertical-align: top;
+  width: calc(100% - 240px);
+  padding: 10px;
+  position: relative;
+  z-index: 0;
+}
+
+body div .chart-container,
+body div .country-selector,
+body div .scale-toggle
+{
+  padding: 10px 10px 10px 0;
+  vertical-align: top;
+}
+
+body div .scale-toggle {
+  display: block;
+  padding: 10px 10px 10px 0;
+  text-align: center;
+}
+
+body div .scale-toggle  label,
+body div .scale-toggle-options {
+  display: inline-block;
+}
+
+#prevalence-country-selector,
+#deaths-country-selector,
+#incidence-country-selector,
+#mortality-country-selector {
+  display: inline-block;
+  width: 240px;
+  z-index: 10;
+}
+
+body div .chart-container {
+  display: inline-block;
+  width: calc(90% - 180px);
+  padding: 10px 10px 10px 0;
+  vertical-align: middle;
+}
+
+.download-link {
+  text-align: center;
+  display: block;
+}
+
+.dash-table-container th span, .dash-table-container td span, table td.dash-cell {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#account-selector-label {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 8px;
+}
+#account-selector-dropdown {
+  display: inline-block;
+  width: 450px;
+  vertical-align: middle;
+}
+
+.account-dropdown-element{
+  z-index: 20;
+  position: relative;
+  color: black;
+}
+
+body #pane-content #scoring-source-table table th.dash-header {
+  white-space: normal;
+  word-break: break-word;
+  height: 60px;
+}
+
