@@ -36,7 +36,7 @@ def get_user_country(country_code: bool = False) -> str:
             user_ip = user_ip.split(',')[0]
         response = reader.country(user_ip)
         if country_code:
-            country = response.country.name.iso_code
+            country = response.name.iso_code
         else:
             country = response.country.name
 
