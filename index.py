@@ -10,6 +10,8 @@ import views
 # Necessary for all controllers' callbacks to apply:
 import controllers  # noqa  # pylint: disable=unused-import
 
+app.title = 'COVID-19 Dashboard'
+
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     views.header,
