@@ -22,6 +22,7 @@ def get_table_data(include_coords: bool = False) -> pd.DataFrame:
         deaths = common.country_group(deaths)
 
     deaths = deaths.sort_values(by=deaths.columns[-3], ascending=False)
+    # print(deaths.head(1))
 
     if not include_coords:
         deaths = deaths.iloc[:, 0:-2]
@@ -38,14 +39,14 @@ def get_chart_data() -> List[dict]:
     """
     data = get_table_data()
     data = data.sort_values(by=data.columns[-3], ascending=False)
-    dates = data.columns[1:-2]
+    dates = data.columns[1:]
     chart_data = []
     for _, row in data.iterrows():
         series = {
             'type': 'scatter',
             'name': row[0],
             'x': dates,
-            'y': row[1:-2],
+            'y': row[1:],
         }
         chart_data.append(series)
 

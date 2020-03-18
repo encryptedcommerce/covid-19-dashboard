@@ -2,6 +2,7 @@ from dash.dependencies import Input, Output
 
 from app import app
 from views.translations import localize
+from models.common import get_user_country
 
 
 @app.callback(Output('summary-welcome', 'children'), [Input('url', 'pathname')])
@@ -32,3 +33,8 @@ def localize_data_update(dummy_url: str = None) -> str:
 @app.callback(Output('geoip-credit', 'children'), [Input('url', 'pathname')])
 def localize_geoip_credit(dummy_url: str = None) -> str:
     return localize('geoip-credit')
+
+
+@app.callback(Output('detected-country', 'children'), [Input('url', 'pathname')])
+def add_user_country(dummy_url: str = None) -> str:
+    return get_user_country()

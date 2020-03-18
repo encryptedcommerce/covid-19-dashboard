@@ -35,7 +35,8 @@ layout = html.Div(
                     target='_blank'
                 ),
             ]
-        )
+        ),
+        html.Div(id='detected-country', style={'display': 'None'})
     ]
 )
 
