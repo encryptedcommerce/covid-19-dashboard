@@ -130,3 +130,6 @@ dmypy.json
 
 # Pycharm
 .idea/
+
+# Data files (downloaded nightly from John Hopkins)
+data/*.csv
