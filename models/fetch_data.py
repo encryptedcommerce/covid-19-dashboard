@@ -66,16 +66,13 @@ def load_data() -> Dict[str, pd.DataFrame]:
             covid19_deaths.columns[list(range(4, 25))], axis=1
         )
 
+        country_renamings = {
+            'US': 'United States',
+        }
         # Rename Country name columns to match GeoIP names.
-        covid19_confirmed.rename(
-            index={
-                'US': 'United States',
-                'Colombia': 'Locombia',
-            },
-            inplace=True
-        )
-        covid19_deaths = covid19_deaths.rename(index={'US': 'United States'})
-        covid19_recovered = covid19_recovered.rename(index={'US': 'United States'})
+        covid19_confirmed = covid19_confirmed.rename(index=country_renamings)
+        covid19_deaths = covid19_deaths.rename(index=country_renamings)
+        covid19_recovered = covid19_recovered.rename(index=country_renamings)
 
         most_recent_col = covid19_confirmed.columns[-1]
         most_recent_date = datetime.strptime(most_recent_col, '%Y-%m-%d').date()
@@ -84,7 +81,7 @@ def load_data() -> Dict[str, pd.DataFrame]:
         print(f'most recent data: {most_recent_date}')
 
         if utc_yesterday > most_recent_date:
-            print('Out of date:')
+            print('Out of date: ')
             print(f'    most recent data is from {most_recent_col} instead of {utc_yesterday}')
         else:
             print(f'Loaded up-to-date data from CSV as of {most_recent_col}')
