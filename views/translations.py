@@ -151,23 +151,24 @@ LOCALIZED_TEXT['in'] = {
 # mapping of country name to language code
 LANG_MAP: Dict[str, str] = {}
 
-automap = ['fr', 'it', 'de', 'ru', 'se', 'cn', 'jp', 'in']
+automap = ['FR', 'IT', 'DE', 'RU', 'SE', 'CN', 'JP', 'IN']
 for country in automap:
-    LANG_MAP[country] = country
+    language = country.lower()
+    LANG_MAP[country] = language
 
-for country in ['co', 'es', 've', 'pe', 'mx']:
+for country in ['AR', 'BO', 'CL', 'CO', 'CR', 'DO', 'EC', 'SV', 'GT', 'HN', 'MX', 'NI', 'PA', 'PY', 'PE', 'PR', 'UY', 'VE']:
     LANG_MAP[country] = 'es'
 
-for country in ['uk', 'us', 'au', 'ca']:
+for country in ['UK', 'US', 'AU', 'CA']:
     LANG_MAP[country] = 'es'
 
-for country in ['fr']:
+for country in ['BE', 'CA', 'LU', 'FR']:
     LANG_MAP[country] = 'fr'
 
-for country in ['de']:
+for country in ['AT', 'LI', 'LU', 'DE', 'CH']:
     LANG_MAP[country] = 'de'
 
-for country in ['br', 'pt']:
+for country in ['BR', 'PT']:
     LANG_MAP[country] = 'pt'
 
 
@@ -178,7 +179,6 @@ def localize(snippet_id: str) -> str:
         snippet_id: id of text snippet from `LOCALIZED_TEXT` dict.
     """
     user_country = get_user_country(country_code=True)
-    print(f'-- localize({snippet_id} got user_country: {user_country}')
     if user_country not in LANG_MAP.keys():
         # User country is not in language map; return English by default
         lang = 'en'
