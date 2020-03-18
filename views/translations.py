@@ -178,6 +178,7 @@ def localize(snippet_id: str) -> str:
         snippet_id: id of text snippet from `LOCALIZED_TEXT` dict.
     """
     user_country = get_user_country(country_code=True)
+    print(f'-- localize({snippet_id} got user_country: {user_country}')
     if user_country not in LANG_MAP.keys():
         # User country is not in language map; return English by default
         lang = 'en'

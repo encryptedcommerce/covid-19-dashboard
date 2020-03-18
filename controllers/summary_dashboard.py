@@ -37,4 +37,5 @@ def localize_geoip_credit(dummy_url: str = None) -> str:
 
 @app.callback(Output('detected-country', 'children'), [Input('url', 'pathname')])
 def add_user_country(dummy_url: str = None) -> str:
-    return get_user_country()
+    text = get_user_country() + ';' + get_user_country(country_code=True)
+    return text
