@@ -160,7 +160,7 @@ for country in ['AR', 'BO', 'CL', 'CO', 'CR', 'DO', 'EC', 'SV', 'GT', 'HN', 'MX'
     LANG_MAP[country] = 'es'
 
 for country in ['UK', 'US', 'AU', 'CA']:
-    LANG_MAP[country] = 'es'
+    LANG_MAP[country] = 'en'
 
 for country in ['BE', 'CA', 'LU', 'FR']:
     LANG_MAP[country] = 'fr'
