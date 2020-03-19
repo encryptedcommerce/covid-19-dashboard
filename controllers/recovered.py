@@ -6,6 +6,7 @@ from app import app
 from controllers import common
 from models import recovered as model
 from views import recovered as view
+from views.translations import localize
 
 
 # Controller module-level cache from model data
@@ -35,6 +36,11 @@ def get_data(cache_key: str):
             CACHE[cache_key] = model.get_chart_data()
 
     return CACHE[cache_key]
+
+
+@app.callback(Output('tab-heading-recovered', 'children'), [Input('url', 'pathname')])
+def localize_heading(dummy_url: str = None) -> str:
+    return localize('recovered')
 
 
 @app.callback(Output('tabs-content-recovered', 'children'),
@@ -131,7 +137,7 @@ def get_chart_figure(selected_countries = None, dummy_url: str = None):
     figure = {
         'data': chart_data,
         'layout': {
-            'title': 'Deaths',
+            'title': localize('deaths'),
             'hovermode': 'closest',
         },
     }

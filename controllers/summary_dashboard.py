@@ -7,7 +7,7 @@ from models.common import get_user_country
 
 @app.callback(Output('summary-welcome', 'children'), [Input('url', 'pathname')])
 def localize_summary_welcome(dummy_url: str = None) -> str:
-    return localize('summary-welcome')
+    return localize('title')
 
 
 @app.callback(Output('summary-intro', 'children'), [Input('url', 'pathname')])

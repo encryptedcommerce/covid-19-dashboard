@@ -15,7 +15,8 @@ def create_navbar(current_page: str = 'confirmed'):
             class_name = 'active'
         else:
             class_name = ''
-        nav_items.append(dcc.Link(title, href=link, className=class_name))
+        link_id = title.lower().replace(' ', '-')
+        nav_items.append(dcc.Link(title, id=link_id, href=link, className=class_name))
 
     nav_bar = html.Nav(id='nav-bar', children=nav_items)
 

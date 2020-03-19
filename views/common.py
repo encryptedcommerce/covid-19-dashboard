@@ -5,6 +5,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_table
 
+from views.translations import localize
+
 
 def get_scale_toggle(pane_id: str) -> html.Div:
     """Get y-axis scale toggle.
@@ -15,14 +17,17 @@ def get_scale_toggle(pane_id: str) -> html.Div:
     Returns:
         HTML component with scale toggle.
     """
-    scale_options = [{'label': 'Log', 'value': 'log'}, {'label': 'Linear', 'value': 'linear'}]
+    scale_options = [
+        {'label': localize('log-scale'), 'value': 'log'},
+        {'label': localize('linear-scale'), 'value': 'linear'}
+    ]
 
     return html.Div(
         id=f'{pane_id}-scale-toggle',
         className='scale-toggle',
         children=[
             html.Span(
-                'y-axis scale: ',
+                localize('y-axis') + ': ',
                 id=f'scale-toggle-label',
                 className='scale-toggle-label'
             ),
@@ -46,13 +51,13 @@ def get_tabs_layout(pane_id: str) -> html.Div:
         HTML component containing common subcomponents.
     """
     components = [
-        html.H2(pane_id.replace('-', ' ').title())
+        html.H2(pane_id.replace('-', ' ').title(), id=f'tab-heading-{pane_id}')
     ]
 
     components.extend([
         dcc.Tabs(id=f'tabs-{pane_id}', value='tab-1-chart', children=[
-            dcc.Tab(label='Chart', value='tab-1-chart'),
-            dcc.Tab(label='Table', value='tab-2-table'),
+            dcc.Tab(id='chart-tab', label='Chart', value='tab-1-chart'),
+            dcc.Tab(id='table-tab', label='Table', value='tab-2-table'),
         ]),
         html.Div(id=f'tabs-content-{pane_id}')
     ])
@@ -134,7 +139,7 @@ def get_download_link(pane_id: str) -> html.A:
     )
 
 
-def get_chart_container(pane_id: str, figure = None) -> html.Div:
+def get_chart_container(pane_id: str, figure=None) -> html.Div:
     """Get chart container component.
 
     Arguments:

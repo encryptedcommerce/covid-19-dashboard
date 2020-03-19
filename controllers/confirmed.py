@@ -1,12 +1,12 @@
 from typing import Dict, List
 
 from dash.dependencies import Input, Output, State
-from dash.exceptions import PreventUpdate
 
 from app import app
 from controllers import common
 from models import confirmed as model
 from views import confirmed as view
+from views.translations import localize
 
 
 # Controller module-level cache from model data
@@ -36,6 +36,11 @@ def get_data(cache_key: str):
             CACHE[cache_key] = model.get_chart_data()
 
     return CACHE[cache_key]
+
+
+@app.callback(Output('tab-heading-confirmed', 'children'), [Input('url', 'pathname')])
+def localize_heading(dummy_url: str = None) -> str:
+    return localize('confirmed')
 
 
 @app.callback(Output('tabs-content-confirmed', 'children'),
@@ -137,7 +142,7 @@ def get_chart_figure(selected_countries=None, scale: str = None, dummy_url: str 
     figure = {
         'data': chart_data,
         'layout': {
-            'title': 'Confirmed',
+            'title': localize('confirmed'),
             'hovermode': 'closest',
             'yaxis': {
                 'type': scale,
