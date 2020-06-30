@@ -181,7 +181,7 @@ def set_country_value(available_options) -> List[str]:
 
         if user_country in values:
             index = values.index(user_country)
-            return values[1:5] + [values[index]]
+            return values[0:6] + [values[index]]
         else:
-            return values[1:8]
+            return values[0:8]
 

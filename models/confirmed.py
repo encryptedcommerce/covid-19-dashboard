@@ -45,7 +45,8 @@ def get_chart_data() -> List[dict]:
             'type': 'scatter',
             'name': row[0],
             'x': dates,
-            'y': row[1:],
+            # 'y': row[1:],
+            'y': row,
         }
         chart_data.append(series)
 
